@@ -1,0 +1,16 @@
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        vow = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        t = []
+        for i in s:
+            if i in vow:
+                t.append(i)
+        
+        ans = ''
+        for i in s:
+            if i in vow:
+                ans += t.pop()
+            else:
+                ans += i
+        
+        return ans
