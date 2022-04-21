@@ -1,7 +1,5 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        for i in range(len(nums)):
-            if target == nums[i]:
-                return i
-        else:
-            return -1
+        if target in nums[0:len(nums)]:
+            return nums.index(target)
+        return -1
