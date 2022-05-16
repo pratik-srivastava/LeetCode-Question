@@ -3,9 +3,8 @@ class Solution:
         l=[]
         length1=len(nums1)
         length2=len(nums2)
-        for i in range(length1):
-            for  j in range(length2):
-                if nums1[i]==nums2[j]:
-                    l.append(nums1[i])
+        for i in nums1:
+            if i in nums2:
+                l.append(i)
         
         return set(l)
