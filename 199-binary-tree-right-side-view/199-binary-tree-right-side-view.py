@@ -14,7 +14,7 @@ class Solution(object):
             size, val = len(deque), 0
             for _ in range(size):
                 node = deque.popleft()
-                val = node.val # store last value in each level
+                val = node.val 
                 if node.left:
                     deque.append(node.left)
                 if node.right:
