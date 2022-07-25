@@ -1,28 +1,36 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        l=[]
-        l1=[-1,-1]
-        l2=[]
-        for i in range(len(nums)):
-            if nums[i]==target:
-                l.append(i)
-                continue
-        if len(l)>2:
-            b=l[0]
-            c=l[len(l)-1]
-            l2.append(b)
-            l2.append(c)
-            return l2
-                
-        if len(l)==1:
-            a=l[0]
-            l.append(a)
-            return l
-        
-        if target not in nums:
-            return l1
-        return l
+        start=self.start_index(nums,target)
+        end=self.end_index(nums,target)
+        return [start,end]
+    def start_index(self, nums: List[int], target: int) -> List[int]:
+        beg=0
+        a=-1
+        stop=len(nums)-1
+        while(beg<=stop):
+            mid=(beg+stop)//2
+            if target == nums[mid]:
+                a=mid
+                stop = mid-1
+            elif target<nums[mid]:
+                stop=mid-1
+            else:
+                beg=mid+1
+        return a
     
-            
-            
                 
+    def end_index(self, nums: List[int], target: int) -> List[int]:
+        beg=0
+        b=-1
+        stop=len(nums)-1
+        while(beg<=stop):
+            mid=(beg+stop)//2
+            if target == nums[mid]:
+                b=mid
+                beg= mid+1
+            elif target<nums[mid]:
+                stop=mid-1
+            else:
+                beg=mid+1
+        return b
+    
