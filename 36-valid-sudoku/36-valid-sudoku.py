@@ -4,6 +4,7 @@ class Solution:
         cols = defaultdict(set)
         rows = defaultdict(set)
         squares = defaultdict(set)
+        #print(squares)
 
         for r in range(9):
             for c in range(9):
