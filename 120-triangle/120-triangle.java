@@ -10,12 +10,22 @@ class Solution {
     public int minimumTotal(List<List<Integer>> triangle) {
         int n=triangle.size();
         int dp[][]=new int[n][n];
-        for(int row[]:dp)
+        for(int j=0;j<n;j++)
         {
-            Arrays.fill(row,-1);
+            dp[n-1][j]=triangle.get(n-1).get(j);
+            
         }
-        return helper(0,0,triangle,n,dp);
-        
+        for(int i=n-2;i>=0;i--)
+        {
+            for(int j=i;j>=0;j--)
+            {
+                int bottom=triangle.get(i).get(j)+ dp[i+1][j];
+                int diagonal=triangle.get(i).get(j)+ dp[i+1][j+1];
+                 dp[i][j]=Math.min(bottom,diagonal);
+                
+            }
+        }
+        return dp[0][0];    
         
     }
 }
